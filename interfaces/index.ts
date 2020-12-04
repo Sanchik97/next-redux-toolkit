@@ -8,3 +8,17 @@ export type User = {
   id: number
   name: string
 }
+
+export interface ITodo {
+  id: number,
+  title: string,
+  completed: boolean
+}
+
+export interface ITodoState {
+  todos: ITodo[],
+  search: string,
+  loaded: boolean,
+  error: boolean,
+  errorMsg: string
+}
