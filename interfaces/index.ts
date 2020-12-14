@@ -11,14 +11,21 @@ export type User = {
 
 export interface ITodo {
   id: number,
+  userId: number,
   title: string,
-  completed: boolean
+  body: string
 }
 
 export interface ITodoState {
   todos: ITodo[],
+  todo: ITodo,
   search: string,
   loaded: boolean,
   error: boolean,
   errorMsg: string
+}
+
+
+export interface IRootState {
+  todo: ITodoState
 }

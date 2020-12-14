@@ -1,16 +1,13 @@
 import type {AppProps} from 'next/app'
-import {Provider} from 'react-redux'
-import store from '../store'
+import {wrapper} from '../store'
 
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import 'antd/dist/antd.css' // or 'antd/dist/antd.less'
 
 
 function MyApp({Component, pageProps}: AppProps) {
 	return (
-		<Provider store={store}>
 			<Component {...pageProps} />
-		</Provider>
 	)
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp)

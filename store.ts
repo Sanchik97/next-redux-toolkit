@@ -1,10 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit'
+import {configureStore} from '@reduxjs/toolkit'
 import todoReducer from './slices/todo'
+import {createWrapper} from "next-redux-wrapper"
 
 
-export default configureStore({
-	reducer: {
-		todo: todoReducer
-	},
-	devTools: true,
-})
+const initStore = () => {
+	return configureStore({
+		reducer: {
+			todo: todoReducer
+		},
+		devTools: true,
+	})
+}
+
+export const wrapper = createWrapper(initStore)
