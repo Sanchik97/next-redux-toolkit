@@ -9,7 +9,7 @@ type Props = {
 }
 
 const Layout = ({children, title = 'This is the default title'}: Props) => (
-	<div>
+	<div className={styles.layout}>
 		<Head>
 			<title>{title}</title>
 			<meta charSet="utf-8"/>
@@ -34,7 +34,9 @@ const Layout = ({children, title = 'This is the default title'}: Props) => (
 				</Link>
 			</nav>
 		</header>
-		{children}
+		<main>
+			{children}
+		</main>
 		<footer>
 			<hr/>
 			<span>I'm here to stay (Footer)</span>

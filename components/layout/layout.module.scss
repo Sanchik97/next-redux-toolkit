@@ -1,5 +1,23 @@
 .navbar {
+  margin-bottom: 35px;
+
   & a {
 	margin: 0 5px;
+  }
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 10px;
+
+  & main {
+	flex: 1;
+  }
+
+  & footer {
+	flex: 1 0 auto;
+
   }
 }

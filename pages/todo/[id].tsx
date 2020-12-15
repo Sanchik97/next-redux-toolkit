@@ -12,24 +12,24 @@ interface props {
 }
 
 const Todo: React.FC<props> = () => {
-	const {todo,error, errorMsg} = useSelector(todoSelector)
+	const {todo, error, errorMsg} = useSelector(todoSelector)
 
-	if(error) {
+	if (error) {
 		return <p>{errorMsg}</p>
 	}
 
 	return (
 		<Layout title={todo.title}>
 			<Container>
-					<pre>UserID:{todo.userId}</pre>
-					<h1>{todo.title}</h1>
-					<p>{todo.body}</p>
+				<h1>{todo.title}</h1>
+				<pre>UserID:{todo.userId}</pre>
+				<p>{todo.body}</p>
 			</Container>
 		</Layout>
 	)
 }
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(async({store, params}) => {
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(async ({store, params}) => {
 	try {
 		const id = params?.id
 		const data = await getTodoById(id as string)

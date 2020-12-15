@@ -20,7 +20,7 @@ const Index: React.FC<props> = () => {
 	return (
 		<Layout title={'Todo Page'}>
 			<Container>
-				<h1 style={{marginTop: 35}}>Hello Todos</h1>
+				<h1>Hello Todos</h1>
 
 				<TodoFilter/>
 				<Skeleton active loading={!loaded}>
