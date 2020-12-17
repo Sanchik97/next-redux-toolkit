@@ -6,6 +6,7 @@ import {getTodoById} from "../api/todos"
 import {fetchTodoError, fetchTodoSuccess, todoSelector} from '../../slices/todo'
 import {useSelector} from "react-redux"
 import Container from "../../components/container/Container"
+import {ITodo} from "../../interfaces"
 
 interface props {
 
@@ -29,11 +30,21 @@ const Todo: React.FC<props> = () => {
 	)
 }
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(async ({store, params}) => {
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(async ({store ,params}) => {
 	try {
 		const id = params?.id
 		const data = await getTodoById(id as string)
-		const todo = await data.json()
+		const todo: ITodo = await data.json()
+
+		if(!todo.id) {
+			return {
+				redirect: {
+					destination: '/404',
+					permanent: false
+				}
+			}
+		}
+
 		store.dispatch(fetchTodoSuccess(todo))
 	} catch (e) {
 		store.dispatch(fetchTodoError('Ошибка! Что-то пошло не так'))

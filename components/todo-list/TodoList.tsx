@@ -16,15 +16,21 @@ const TodoList: React.FC<props> = ({todos}) => {
 		return <p>{errorMsg}</p>
 	}
 
-	const renderTodos = todos.map((todo: ITodo) => {
-		if (todo.title.toLowerCase().indexOf(search.toLowerCase()) > -1) {
-			return <TodoItem todo={todo} key={todo.id} />
+	const renderTodos = () => {
+		if(!todos.length) {
+			return <p>Todos not found.</p>
 		}
-	})
+
+		return todos.map((todo: ITodo) => {
+			if (todo.title.toLowerCase().indexOf(search.toLowerCase()) > -1) {
+				return <TodoItem todo={todo} key={todo.id} />
+			}
+		})
+	}
 
 	return (
 		<ul>
-			{renderTodos}
+			{renderTodos()}
 		</ul>
 	)
 }

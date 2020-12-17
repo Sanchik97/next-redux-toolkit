@@ -9,6 +9,7 @@ import Container from "../../components/container/Container"
 import {fetchTodos} from "../api/todos"
 import {wrapper} from "../../store"
 import {GetServerSideProps} from "next"
+import {ITodo} from "../../interfaces"
 
 interface props {
 }
@@ -33,10 +34,10 @@ const Index: React.FC<props> = () => {
 
 
 // SSR FETCHING DATA
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(async ({store}) => {
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(async ({store, query}) => {
 	try {
-		const data = await fetchTodos()
-		const todos = await data.json()
+		const data = await fetchTodos(query)
+		const todos: ITodo[] = await data.json()
 		store.dispatch(fetchTodosSuccess(todos))
 	} catch (e) {
 		store.dispatch(fetchTodosError('Ошибка! Что-то пошло не так, мы скоро все исправим'))
