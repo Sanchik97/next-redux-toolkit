@@ -11,6 +11,10 @@
   min-height: 100vh;
   padding-top: 10px;
 
+  & select {
+	margin-right: 10px;
+  }
+
   & header {
 	margin-bottom: 35px;
 	display:flex;

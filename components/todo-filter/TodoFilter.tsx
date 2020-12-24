@@ -14,7 +14,6 @@ const TodoFilter: React.FC<props> = () => {
 	const dispatch = useDispatch()
 	const {t} = useTranslation()
 	return (
-
 		<Form.Item label={t('todo:filter')}>
 			<Input
 				placeholder={t('todo:filter')}
