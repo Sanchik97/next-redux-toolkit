@@ -1,11 +1,10 @@
-import type {AppProps} from 'next/app'
 import {wrapper} from '../store'
 import NextNprogress from 'nextjs-progressbar'
 
 import 'antd/dist/antd.css' // or 'antd/dist/antd.less'
 
 
-function MyApp({Component, pageProps}: AppProps) {
+function MyApp({Component, pageProps}: any) {
 	return (
 		<>
 			<NextNprogress
@@ -18,5 +17,6 @@ function MyApp({Component, pageProps}: AppProps) {
 			</>
 	)
 }
+
 
 export default wrapper.withRedux(MyApp)

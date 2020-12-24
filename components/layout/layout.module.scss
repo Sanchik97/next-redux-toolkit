@@ -1,5 +1,4 @@
 .navbar {
-  margin-bottom: 35px;
 
   & a {
 	margin: 0 5px;
@@ -12,6 +11,12 @@
   min-height: 100vh;
   padding-top: 10px;
 
+  & header {
+	margin-bottom: 35px;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+  }
   & main {
 	flex: 1;
   }
@@ -21,4 +26,7 @@
 	padding: 25px;
 	background: #ccc;
   }
+}
+.locale a{
+  margin-right: 5px;
 }

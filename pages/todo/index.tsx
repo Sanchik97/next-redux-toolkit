@@ -10,19 +10,19 @@ import {fetchTodos} from "../api/todos"
 import {wrapper} from "../../store"
 import {GetServerSideProps} from "next"
 import {ITodo} from "../../interfaces"
+import useTranslation from "next-translate/useTranslation"
 
 interface props {
 }
 
-const Index: React.FC<props> = () => {
-
+const Index = ({}: props) => {
 	const {loaded, todos} = useSelector(todoSelector)
+	const {t} = useTranslation()
 
 	return (
 		<Layout title={'Todo Page'}>
 			<Container>
-				<h1>Hello Todos</h1>
-
+				<h1>{t('todo:title')}</h1>
 				<TodoFilter/>
 				<Skeleton active loading={!loaded}>
 					<TodoList todos={todos}/>
